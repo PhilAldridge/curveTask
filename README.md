@@ -57,7 +57,7 @@ A Node.js application that ingests track data from Excel spreadsheets into Mongo
 
 ## Quick Start
 
-1. **Run with Docker:**
+### **Run with Docker:**
    ```bash
    # Build and start services
    docker-compose up --build
@@ -72,7 +72,7 @@ The application will:
 - Process your spreadsheet data
 - Display detailed results and any errors
 
-2. **Local testing:**
+### **Local testing:**
    ```bash
    npm install
    npm run test
