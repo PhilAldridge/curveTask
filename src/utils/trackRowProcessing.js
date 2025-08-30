@@ -1,4 +1,4 @@
-import { removeSpecialCharacters, processStringArray } from "./inputProcessing";
+import { removeSpecialCharacters, processStringArray } from "./inputProcessing.js";
 
 /**
    * Convert row data to track object
@@ -12,7 +12,7 @@ export function convertToTrackObject(rowData) {
       Artist: rowData.Artist?.trim() || '',
       ISRC: removeSpecialCharacters(rowData.ISRC),
       PLine: rowData['P Line']?.trim() || '',
-      aliases: processStringArray(rowData.aliases,';')
+      Aliases: processStringArray(rowData.Aliases,';')
     };
 
     return {

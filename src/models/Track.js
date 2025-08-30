@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
 
 const trackSchema = new mongoose.Schema({
   Title: {
@@ -41,4 +41,4 @@ const trackSchema = new mongoose.Schema({
 trackSchema.index({ Title: 1, Artist: 1 });
 trackSchema.index({ ContractId: 1 });
 
-module.exports = mongoose.model('Track', trackSchema);
+export default mongoose.model('Track', trackSchema);

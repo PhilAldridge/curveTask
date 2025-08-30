@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "NodeJS script to ingest spreadsheet data into MongoDB",
   "main": "src/index.js",
+  "type": "module",
   "scripts": {
     "start": "node src/index.js",
-    "test": "mocha test/**/*.test.js --timeout 10000",
+    "test": "mocha test/**/*.test.js --timeout 3000",
     "dev": "nodemon src/index.js",
     "docker:build": "docker-compose build",
     "docker:up": "docker-compose up",
@@ -21,6 +22,7 @@
   "devDependencies": {
     "mocha": "^10.2.0",
     "chai": "^4.3.8",
-    "nodemon": "^3.0.1"
+    "nodemon": "^3.0.1",
+    "mongodb-memory-server": "^9.1.1"
   }
 }

@@ -1,12 +1,13 @@
-import { convertToTrackObject } from './utils/trackRowProcessing';
+import { convertToTrackObject } from './utils/trackRowProcessing.js';
+import dotenv from 'dotenv';
+import database from './config/database.js';
+import ContractService from './services/contractService.js';
+import TrackService from './services/trackService.js';
+import SpreadsheetReader from './services/spreadsheetReader.js';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-require('dotenv').config();
-
-const database = require('./config/database');
-const ContractService = require('./services/contractService')
-const TrackService = require('./services/trackService')
-const SpreadsheetReader = require('./services/spreadsheetReader')
-const path = require('path');
+dotenv.config();
 
 async function main() {  
   try {
@@ -27,7 +28,9 @@ async function main() {
     await contractService.createContract('Contract 1');
     
     // Define the path to the test data file
-    const dataFilePath = path.join(__dirname, '..', 'data', 'Track Import Test.xlsx');
+    const __filename = fileURLToPath(import.meta.url);
+    const __dirname = path.dirname(__filename);
+    const dataFilePath = path.join(__dirname, '.', 'data', 'Track Import Test.xlsx');
     
     console.log(`\n📊 Ingesting data from: ${dataFilePath}`);
     
@@ -51,7 +54,7 @@ async function main() {
     if (results.successCount > 0) {
       console.log('\n✅ SUCCESSFUL IMPORTS:');
       results.processedTracks.forEach(track => {
-        console.log(`  • "${track.title}" by ${track.artist}`);
+        console.log(`  • "${track.Title}" by ${track.Artist}`);
       });
     }
     
@@ -77,9 +80,5 @@ process.on('unhandledRejection', (reason, promise) => {
   process.exit(1);
 });
 
-// Run the main function
-if (require.main === module) {
-  main();
-}
 
-module.exports = { main };
+main();

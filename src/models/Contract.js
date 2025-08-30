@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
 
 const contractSchema = new mongoose.Schema({
   Name: {
@@ -12,4 +12,4 @@ const contractSchema = new mongoose.Schema({
 // Index for faster lookups by name
 contractSchema.index({ Name: 1 });
 
-module.exports = mongoose.model('Contract', contractSchema);
+export default mongoose.model('Contract', contractSchema);

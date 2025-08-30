@@ -1,6 +1,4 @@
-import { processStringArray, removeSpecialCharacters } from '../utils/inputProcessing';
-
-const Track = require('../models/Track');
+import Track from '../models/Track.js';
 
 
 class TrackService {
@@ -57,7 +55,7 @@ class TrackService {
         const contract = await this.findContract(contractName);
         
         if (contract) {
-          trackData.ContractId = contract._id;
+          track.ContractId = contract._id;
         } else {
           return {
             success: false,
@@ -123,11 +121,11 @@ class TrackService {
         if (result.success) {
           results.successCount++;
           results.processedTracks.push(result.track);
-          console.log(`✓ Row ${result.rowNumber}: Successfully processed track "${result.track.Title}"`);
+          console.log(`✓ Row ${result.row}: Successfully processed track "${result.track.Title}"`);
         } else {
           results.errorCount++;
           results.errors.push(...result.errors);
-          console.error(`✗ Row ${result.rowNumber}: ${result.errors.join(', ')}`);
+          console.error(`✗ Row ${result.row}: ${result.errors.join(', ')}`);
         }
       }
 
@@ -140,4 +138,4 @@ class TrackService {
   }
 }
 
-module.exports = TrackService;
+export default TrackService;

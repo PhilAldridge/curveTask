@@ -1,5 +1,5 @@
-const XLSX = require('xlsx');
-const fs = require('fs');
+import XLSX from 'xlsx';
+import fs from 'fs';
 
 class SpreadsheetReader {
   constructor() {
@@ -113,4 +113,4 @@ class SpreadsheetReader {
   }
 }
 
-module.exports = SpreadsheetReader;
+export default SpreadsheetReader;

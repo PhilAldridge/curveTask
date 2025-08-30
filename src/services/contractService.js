@@ -1,4 +1,4 @@
-const Contract = require('../models/Contract');
+import Contract from '../models/Contract.js'
 
 class ContractService {
   /**
@@ -8,8 +8,12 @@ class ContractService {
    */
    async createContract(contractName) {
     try {
+      if (!contractName || contractName.trim() === '') {
+        throw new Error("contract name not provided")
+      }
+
       // Check if contract already exists
-      const existingContract = await Contract.findOne({ name: contractName });
+      const existingContract = await Contract.findOne({ Name: contractName.trim() });
       if (existingContract) {
         console.log(`Contract "${contractName}" already exists`);
         return existingContract;
@@ -17,9 +21,7 @@ class ContractService {
 
       // Create new contract
       const contract = new Contract({
-        name: contractName,
-        description: `Test contract: ${contractName}`,
-        status: 'active'
+        Name: contractName.trim(),
       });
 
       await contract.save();
@@ -52,4 +54,4 @@ class ContractService {
     }
 }
 
-module.exports = ContractService
+export default ContractService;
