@@ -75,7 +75,12 @@ class SpreadsheetReader {
         // Map values to headers
         headers.forEach((header, index) => {
           if (header && header.trim()) {
-            rowData[header.trim()] = rowValues[index] || '';
+            var rowValue = rowValues[index] || '';
+            if (typeof rowValue === 'string') {
+              rowValue = rowValue.trim();
+            }
+            rowData[header.trim()] = rowValue;
+            
           }
         });
 

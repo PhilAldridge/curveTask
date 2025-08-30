@@ -7,11 +7,11 @@ import { removeSpecialCharacters, processStringArray } from "./inputProcessing.j
    */
 export function convertToTrackObject(rowData) {
     const track = {
-      Title: rowData.Title.trim(),
-      Version: rowData.Version?.trim() || '',
-      Artist: rowData.Artist?.trim() || '',
+      Title: rowData.Title,
+      Version: rowData.Version || '',
+      Artist: rowData.Artist || '',
       ISRC: removeSpecialCharacters(rowData.ISRC),
-      PLine: rowData['P Line']?.trim() || '',
+      PLine: rowData['P Line'] || '',
       Aliases: processStringArray(rowData.Aliases,';')
     };
 
