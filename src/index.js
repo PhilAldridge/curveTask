@@ -47,7 +47,7 @@ async function main() {
     if (results.errors.length > 0) {
       console.log('\n❌ ERRORS:');
       results.errors.forEach(error => {
-        console.error(`  • ${error}`);
+        console.log(`  • ${error}`);
       });
     }
     
