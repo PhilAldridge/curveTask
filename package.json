@@ -15,14 +15,16 @@
   },
   "author": "Phil Aldridge",
   "dependencies": {
+    "dotenv": "^16.3.1",
     "mongoose": "^7.5.0",
-    "xlsx": "^0.18.5",
-    "dotenv": "^16.3.1"
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
+    "chai": "^6.0.1",
+    "chai-as-promised": "^8.0.2",
     "mocha": "^10.2.0",
-    "chai": "^4.3.8",
+    "mongodb-memory-server": "^9.1.1",
     "nodemon": "^3.0.1",
-    "mongodb-memory-server": "^9.1.1"
+    "sinon": "^21.0.0"
   }
 }
