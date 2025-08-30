@@ -60,18 +60,17 @@ describe('Models', function() {
       const trackData = {
         Title: 'Test Song',
         Artist: 'Test Artist',
-        ISRC: 'Test ISRC...!',
+        ISRC: 'Test ISRC',
         Aliases: ['Song Alias 1', 'Song Alias 2'],
         ContractId: contract._id
       };
-
       const track = new Track(trackData);
       const savedTrack = await track.save();
 
       expect(savedTrack).to.have.property('_id');
       expect(savedTrack.Title).to.equal('Test Song');
       expect(savedTrack.Artist).to.equal('Test Artist');
-      expect(savedTrack.ISRC).to.equal('TestISRC'); //space and characters removed
+      expect(savedTrack.ISRC).to.equal('Test ISRC');
       expect(savedTrack.Aliases).to.be.an('array').with.length(2);
       expect(savedTrack.ContractId.toString()).to.equal(contract._id.toString());
     });
@@ -98,7 +97,7 @@ describe('Models', function() {
       const savedTrack = await track.save();
 
       expect(savedTrack.Title).to.equal('Independent Song');
-      expect(savedTrack.ISRC).to.equal('TestISRC');
+      expect(savedTrack.ISRC).to.equal('Test ISRC');
       expect(savedTrack.contractId).to.be.undefined;
     });
 

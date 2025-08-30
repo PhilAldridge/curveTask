@@ -27,7 +27,7 @@ const trackSchema = new mongoose.Schema({
     trim: true
   },
   Aliases: [{
-    type: [String],
+    type: String,
     required: false,
     trim: true
   }],
